@@ -1,33 +1,4 @@
-# Algorithm & Data Structures Technical Assessment
 
-This project contains complete, production-ready implementations, unit tests, and comprehensive analysis for both assessment problems.
-
----
-
-## 📂 Project Structure
-
-```
-assessment-solutions/
-├── lru_cache.py              # Problem 1: O(1) LRU Cache (DLL + Hash Map)
-├── event_scheduler.py        # Problem 2: Event Scheduler & Room Allocator
-├── thread_safe_lru_cache.py  # Concurrency: Thread-safe LRU Cache with RLock
-├── test_assessment.py        # Complete unit test suite for both problems
-├── main_demo.py              # Interactive runner demonstrating all operations
-└── README.md                 # Full documentation & analytical report
-```
-
----
-
-## 🧩 Problem 1: LRU Cache Implementation
-
-### Logic and Approach (In Plain English)
-To achieve constant $O(1)$ time complexity for both `get` and `put`, we combine two complementary data structures: a **Hash Map** and a **Doubly Linked List**.
-- **Hash Map (`key -> Node`)**: Provides instantaneous $O(1)$ lookup for any cached key, avoiding the $O(n)$ linear scan of arrays.
-- **Doubly Linked List**: Keeps nodes in temporal order from **Most Recently Used (MRU)** at the head to **Least Recently Used (LRU)** at the tail. Because each node carries both `prev` and `next` pointers, any node can be unlinked and repositioned in $O(1)$ without traversing the list.
-- **Dummy Boundary Nodes**: Sentinel `head` and `tail` nodes eliminate edge cases when inserting into or removing from empty lists or list boundaries.
-- **Eviction**: When capacity is reached during a new `put`, the node immediately preceding the dummy tail (LRU) is removed from the list and deleted from the hash map in $O(1)$.
-
----
 
 ## 🧩 Problem 2: Event Scheduler
 
